@@ -1,6 +1,15 @@
 CREATE DATABASE `db_amat`;
 USE `db_amat`;
 
+CREATE TABLE `user` (
+    id INT NOT NULL AUTO_INCREMENT,
+    nama VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    status ENUM('') NOT NULL,
+    PRIMARY KEY(id) 
+);
+
 CREATE TABLE `penduduk` (
     nik VARCHAR(20) NOT NULL,
     nama VARCHAR(50 ) NOT NULL,
