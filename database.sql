@@ -6,9 +6,18 @@ CREATE TABLE `user` (
     nama VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    status ENUM('') NOT NULL,
+    status ENUM('ADMIN', 'PEGAWAI') NOT NULL,
     PRIMARY KEY(id) 
 );
+
+INSERT INTO `user` (
+    nama,
+    username,
+    password,
+    status 
+) VALUES 
+('Admin', 'admin', 'admin', 'ADMIN'),
+('Ahmad Rifai', 'rifai', 'rifai', 'PEGAWAI');
 
 CREATE TABLE `penduduk` (
     nik VARCHAR(20) NOT NULL,

@@ -36,15 +36,15 @@ if (isset($_POST['submit'])) {
           <form action="" method="POST">
             <div class="form-group">
               <label for="password_lama">Password Lama</label>
-              <input class="form-control" name="password_lama" id="password_lama" type="text">
+              <input class="form-control" name="password_lama" id="password_lama" type="password">
             </div>
             <div class="form-group">
               <label for="password_baru">Password Baru</label>
-              <input class="form-control" name="password_baru" id="password_baru" type="date">
+              <input class="form-control" name="password_baru" id="password_baru" type="password">
             </div>
             <div class="form-group">
               <label for="konfirmasi_password_baru">Konfirmasi Password Baru</label>
-              <input class="form-control" name="konfirmasi_password_baru" id="konfirmasi_password_baru" type="text">
+              <input class="form-control" name="konfirmasi_password_baru" id="konfirmasi_password_baru" type="password">
             </div>
             <button class="btn btn-primary" name="submit" type="submit">Ganti Password</button>
           </form>
