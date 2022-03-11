@@ -12,6 +12,8 @@
         <li><a class="app-menu__item" href="penduduk.php"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Data Penduduk</span></a></li>
         <li><a class="app-menu__item" href="kelahiran.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Data Kelahiran</span></a></li>
         <li><a class="app-menu__item" href="kematian.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Data Kematian</span></a></li>
+        <li><a class="app-menu__item" href="kedatangan.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Data Kedatangan</span></a></li>
+        <li><a class="app-menu__item" href="pindahan.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Data kepindahan</span></a></li>
         <?php if ($_SESSION['status'] == 'ADMIN') : ?>
             <li><a class="app-menu__item" href="laporan.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Laporan</span></a></li>
         <?php endif; ?>

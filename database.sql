@@ -67,8 +67,29 @@ CREATE TABLE `kematian` (
 CREATE TABLE `pindahan` (
     id int NOT NULL AUTO_INCREMENT,
     nik VARCHAR(20) NOT NULL,
-    tanggal DATE NOT NULL,
-    tempat VARCHAR(35),
-    sebab VARCHAR(59),
+    nama VARCHAR(255) NOT NULL,
+    alamat VARCHAR(255) NOT NULL,
+    rt VARCHAR(255) NOT NULL,
+    rw VARCHAR(255) NOT NULL,
+    desa VARCHAR(255) NOT NULL,
+    kabupaten VARCHAR(255) NOT NULL,
+    kecamatan VARCHAR(255) NOT NULL,
+    provinsi VARCHAR(255) NOT NULL,
+    tanggal DATE,
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE `kedatangan` (
+    id int NOT NULL AUTO_INCREMENT,
+    nik VARCHAR(20) NOT NULL,
+    nama VARCHAR(255) NOT NULL,
+    alamat VARCHAR(255) NOT NULL,
+    rt VARCHAR(255) NOT NULL,
+    rw VARCHAR(255) NOT NULL,
+    desa VARCHAR(255) NOT NULL,
+    kabupaten VARCHAR(255) NOT NULL,
+    kecamatan VARCHAR(255) NOT NULL,
+    provinsi VARCHAR(255) NOT NULL,
+    tanggal DATE,
     PRIMARY KEY(id)
 );
