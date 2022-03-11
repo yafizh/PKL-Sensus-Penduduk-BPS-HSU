@@ -3,7 +3,31 @@
 <?php include_once("koneksi.php"); ?>
 <main class="app-content">
     <div class="row">
-        
+        <div class="col-md-4">
+            <div class="tile">
+                <div class="tile-body">
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="mb-3" id="buttons">Laporan Penduduk</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row p-3">
+                        <form action="laporan_penduduk.php" method="POST">
+                            <label for="">Tanggal Lahir</label>
+                            <div class="d-flex">
+                                <input type="date" name="dari" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
+                                <label for="">_</label>
+                                <input type="date" name="sampai" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
+                            </div>
+                            <button class="btn btn-primary mt-3" type="submit">Cetak</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-md-4">
             <div class="tile">
                 <div class="tile-body">
@@ -56,26 +80,27 @@
             </div>
         </div>
 
+
         <div class="col-md-4">
             <div class="tile">
                 <div class="tile-body">
                     <div class="page-header">
                         <div class="row">
                             <div class="col">
-                                <h2 class="mb-3" id="buttons">Laporan Penduduk</h2>
+                                <h2 class="mb-3" id="buttons">Laporan Kedatangan</h2>
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div class="row p-3">
-                        <form action="laporan_penduduk.php" method="POST">
-                            <label for="">Tanggal Lahir</label>
+                        <form action="laporan_kedatangan.php" method="POST">
+                            <label for="">Tanggal Datang</label>
                             <div class="d-flex">
                                 <input type="date" name="dari" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
                                 <label for="">_</label>
                                 <input type="date" name="sampai" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
                             </div>
-                            <button class="btn btn-primary mt-3" type="submit">Cetak</button>
+                            <button type="submit" class="btn btn-primary mt-3">Cetak</button>
                         </form>
                     </div>
                 </div>
@@ -94,45 +119,20 @@
                     </div>
                     <hr>
                     <div class="row p-3">
-                        <form action="">
+                        <form action="laporan_pindahan.php" method="POST">
                             <label for="">Tanggal Pindah</label>
                             <div class="d-flex">
-                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
+                                <input type="date" name="dari" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
                                 <label for="">_</label>
-                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
+                                <input type="date" name="sampai" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
                             </div>
-                            <button class="btn btn-primary mt-3">Cetak</button>
+                            <button type="submit" class="btn btn-primary mt-3">Cetak</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="tile">
-                <div class="tile-body">
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="mb-3" id="buttons">Laporan Kedatangan</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row p-3">
-                        <form action="">
-                            <label for="">Tanggal Datang</label>
-                            <div class="d-flex">
-                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
-                                <label for="">_</label>
-                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
-                            </div>
-                            <button class="btn btn-primary mt-3">Cetak</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 <!-- Essential javascripts for application to work-->
