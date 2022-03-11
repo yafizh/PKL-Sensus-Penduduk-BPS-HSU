@@ -30,18 +30,23 @@ if (isset($_POST['submit'])) {
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login - Vali Admin</title>
+    <style>
+        .btn-primary {
+            background-color: #0093DD!important;
+        }
+    </style>
 </head>
 
 <body>
     <section class="material-half-bg">
-        <div class="cover"></div>
+        <div class="cover" style="background-color: #0093DD;"></div>
     </section>
     <section class="login-content">
-        <div class="logo">
-            <!-- <h1>Vali</h1> -->
-        </div>
-        <div class="login-box">
+        <div class="login-box" style="height: 500px;">
             <form class="login-form" action="" method="POST">
+                <div class="logo d-flex justify-content-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg" width="100" alt="">
+                </div>
                 <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>LOGIN</h3>
                 <div class="form-group">
                     <label class="control-label">USERNAME</label>

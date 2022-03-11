@@ -3,6 +3,7 @@
 <?php include_once("koneksi.php"); ?>
 <main class="app-content">
     <div class="row">
+        
         <div class="col-md-4">
             <div class="tile">
                 <div class="tile-body">
@@ -15,14 +16,14 @@
                     </div>
                     <hr>
                     <div class="row p-3">
-                        <form action="">
+                        <form action="laporan_kelahiran.php" method="POST">
                             <label for="">Tanggal Lahir</label>
                             <div class="d-flex">
-                                <input type="date" class="form-control mr-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" name="dari" class="form-control mr-2">
                                 <label for="">_</label>
-                                <input type="date" class="form-control ml-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" name="sampai" class="form-control ml-2">
                             </div>
-                            <button class="btn btn-primary mt-3">Cetak</button>
+                            <button type="submit" class="btn btn-primary mt-3">Cetak</button>
                         </form>
                     </div>
                 </div>
@@ -41,14 +42,14 @@
                     </div>
                     <hr>
                     <div class="row p-3">
-                        <form action="">
+                        <form action="laporan_kematian.php" method="POST">
                             <label for="">Tanggal Kematian</label>
                             <div class="d-flex">
-                                <input type="date" class="form-control mr-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" name="dari" class="form-control mr-2">
                                 <label for="">_</label>
-                                <input type="date" class="form-control ml-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" name="sampai" class="form-control ml-2">
                             </div>
-                            <button class="btn btn-primary mt-3">Cetak</button>
+                            <button type="submit" class="btn btn-primary mt-3">Cetak</button>
                         </form>
                     </div>
                 </div>
@@ -67,14 +68,14 @@
                     </div>
                     <hr>
                     <div class="row p-3">
-                        <form action="">
+                        <form action="laporan_penduduk.php" method="POST">
                             <label for="">Tanggal Lahir</label>
                             <div class="d-flex">
-                                <input type="date" class="form-control mr-2">
+                                <input type="date" name="dari" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
                                 <label for="">_</label>
-                                <input type="date" class="form-control ml-2">
+                                <input type="date" name="sampai" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
                             </div>
-                            <button class="btn btn-primary mt-3">Cetak</button>
+                            <button class="btn btn-primary mt-3" type="submit">Cetak</button>
                         </form>
                     </div>
                 </div>
@@ -96,9 +97,9 @@
                         <form action="">
                             <label for="">Tanggal Pindah</label>
                             <div class="d-flex">
-                                <input type="date" class="form-control mr-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
                                 <label for="">_</label>
-                                <input type="date" class="form-control ml-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
                             </div>
                             <button class="btn btn-primary mt-3">Cetak</button>
                         </form>
@@ -122,9 +123,9 @@
                         <form action="">
                             <label for="">Tanggal Datang</label>
                             <div class="d-flex">
-                                <input type="date" class="form-control mr-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control mr-2">
                                 <label for="">_</label>
-                                <input type="date" class="form-control ml-2">
+                                <input type="date" value="<?= Date('Y-m-d') ?>" class="form-control ml-2">
                             </div>
                             <button class="btn btn-primary mt-3">Cetak</button>
                         </form>

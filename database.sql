@@ -51,11 +51,17 @@ CREATE TABLE `kelahiran` (
 CREATE TABLE `kematian` (
     id int NOT NULL AUTO_INCREMENT,
     nik VARCHAR(20) NOT NULL,
+    nama varchar(35) NOT NULL,
+    jenis_kelamin VARCHAR(20) NOT NULL,
+    tempat_lahir VARCHAR(35) NOT NULL,
+    tanggal_lahir DATE NOT NULL,
+    status_nikah VARCHAR(20) NOT NULL,
+    agama VARCHAR(20) NOT NULL,
+    alamat VARCHAR(50) NOT NULL,
     tanggal DATE NOT NULL,
     tempat VARCHAR(35),
     sebab VARCHAR(59),
-    PRIMARY KEY(id),
-    FOREIGN KEY (nik) REFERENCES penduduk (nik)
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE `pindahan` (

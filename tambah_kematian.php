@@ -3,25 +3,45 @@
 <?php
 if (isset($_POST['submit'])) {
   $nik = $_POST['nik'];
+  $nama = $_POST['nama'];
+  $jenis_kelamin = $_POST['jenis_kelamin'];
+  $tempat_lahir = $_POST['tempat_lahir'];
+  $tanggal_lahir = $_POST['tanggal_lahir'];
+  $status_nikah = $_POST['status_nikah'];
+  $agama = $_POST['agama'];
+  $alamat = $_POST['alamat'];
   $tanggal = $_POST['tanggal'];
   $tempat = $_POST['tempat'];
   $sebab = $_POST['sebab'];
-  $alamat = $_POST['alamat'];
 
   $sql = "
         INSERT INTO kematian (
-            nik, 
-            tanggal, 
-            tempat, 
-            sebab 
+          nik,
+          nama,
+          jenis_kelamin,
+          tempat_lahir,
+          tanggal_lahir,
+          status_nikah,
+          agama,
+          alamat,
+          tanggal,
+          tempat,
+          sebab 
         ) VALUES (
-            '$nik',
+            '$nik', 
+            '$nama', 
+            '$jenis_kelamin', 
+            '$tempat_lahir', 
+            '$tanggal_lahir',
+            '$status_nikah',
+            '$agama', 
+            '$alamat', 
             '$tanggal', 
-            '$tempat',
-            '$sebab' 
+            '$tempat', 
+            '$sebab'  
         )";
 
-  if ($mysqli->query($sql) === TRUE) echo "<script>alert('Data Kematian berhasil ditambahkan.')</script>";
+  if ($mysqli->query($sql) === TRUE) echo "<script>alert('Kematian berhasil ditambahkan.')</script>";
   else echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
 ?>
@@ -43,6 +63,54 @@ if (isset($_POST['submit'])) {
             <div class="form-group">
               <label for="nik">NIK</label>
               <input class="form-control" name="nik" id="nik" type="text">
+            </div>
+            <div class="form-group">
+              <label for="nama">Nama</label>
+              <input class="form-control" name="nama" id="nama" type="text">
+            </div>
+            <fieldset class="form-group">
+              <legend>Jenis Kelamin</legend>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" id="optionsRadios1" type="radio" name="jenis_kelamin" value="Laki-Laki" checked="">Laki - Laki
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" id="optionsRadios2" type="radio" name="jenis_kelamin" value="Perempuan">Perempuan
+                </label>
+              </div>
+            </fieldset>
+            <div class="form-group">
+              <label for="tempat_lahir">Tempat Lahir</label>
+              <input class="form-control" name="tempat_lahir" id="tempat_lahir" type="text">
+            </div>
+            <div class="form-group">
+              <label for="tanggal_lahir">Tanggal Lahir</label>
+              <input class="form-control" name="tanggal_lahir" id="tanggal_lahir" type="date">
+            </div>
+            <div class="form-group">
+              <label for="agama">Agama</label>
+              <select class="form-control" name="agama" id="agama">
+                <option selected value="Protestan">Protestan</option>
+                <option value="Katolik">Katolik</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Buddha">Buddha</option>
+                <option value="Khonghucu">Khonghucu</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="status_nikah">Status Nikah</label>
+              <select class="form-control" name="status_nikah" id="status_nikah">
+                <option selected value="Belum Kawin">Belum Kawin</option>
+                <option value="Kawin">Kawin</option>
+                <option value="Cerai Hidup">Cerai Hidup</option>
+                <option value="Cerai Mati">Cerai Mati</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="alamat">Alamat</label>
+              <input class="form-control" name="alamat" id="alamat" type="text">
             </div>
             <div class="form-group">
               <label for="tanggal">Tanggal</label>

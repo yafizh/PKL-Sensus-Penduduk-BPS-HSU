@@ -12,10 +12,22 @@
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+    .btn-primary,
+    .app-header {
+        background-color: #0093DD !important;
+    }
+    .app-header__logo {
+        background-color: #00496e !important;
+    }
+</style>
 
 <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">BPS</a>
+    <header class="app-header">
+        <a class="app-header__logo" href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg" class="mb-2 mr-2" width="30" alt="">
+            <span style="font-family: 'Courier New', Courier, monospace;">BPS</span>
+        </a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">

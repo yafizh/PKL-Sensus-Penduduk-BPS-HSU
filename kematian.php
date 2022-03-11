@@ -23,6 +23,12 @@
                 <tr>
                   <th>NIK</th>
                   <th>Nama</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Tempat Lahir</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Status Nikah</th>
+                  <th>Agama</th>
+                  <th>Alamat</th>
                   <th>Tanggal</th>
                   <th>Tempat</th>
                   <th>Sebab</th>
@@ -31,15 +37,21 @@
               <tbody>
                 <?php
                 $no = 1;
-                $data = $mysqli->query("SELECT * FROM kematian INNER JOIN penduduk WHERE kematian.nik=penduduk.nik");
+                $data = $mysqli->query("SELECT * FROM kematian");
                 ?>
                 <?php while ($datum = $data->fetch_assoc()) : ?>
                   <tr>
-                    <td><?= $datum['nik']; ?></td>
-                    <td><?= $datum['nama']; ?></td>
-                    <td><?= $datum['tanggal']; ?></td>
-                    <td><?= $datum['tempat']; ?></td>
-                    <td><?= $datum['sebab']; ?></td>
+                    <td class="text-center"><?= $datum['nik']; ?></td>
+                    <td class="text-center"><?= $datum['nama']; ?></td>
+                    <td class="text-center"><?= $datum['jenis_kelamin']; ?></td>
+                    <td class="text-center"><?= $datum['tempat_lahir']; ?></td>
+                    <td class="text-center"><?= $datum['tanggal_lahir']; ?></td>
+                    <td class="text-center"><?= $datum['status_nikah']; ?></td>
+                    <td class="text-center"><?= $datum['agama']; ?></td>
+                    <td class="text-center"><?= $datum['alamat']; ?></td>
+                    <td class="text-center"><?= $datum['tanggal']; ?></td>
+                    <td class="text-center"><?= $datum['tempat']; ?></td>
+                    <td class="text-center"><?= $datum['sebab']; ?></td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>
