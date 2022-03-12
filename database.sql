@@ -20,6 +20,7 @@ INSERT INTO `user` (
 ('Ahmad Rifai', 'rifai', 'rifai', 'PEGAWAI');
 
 CREATE TABLE `penduduk` (
+    id INT NOT NULL AUTO_INCREMENT,
     nik VARCHAR(20) NOT NULL,
     nama VARCHAR(50 ) NOT NULL,
     jenis_kelamin VARCHAR(10) NOT NULL,
@@ -31,7 +32,7 @@ CREATE TABLE `penduduk` (
     pendidikan VARCHAR(20) NOT NULL,
     pekerjaan VARCHAR(50) NOT NULL,
     warga_negara VARCHAR(25) NOT NULL,
-    PRIMARY KEY(nik)
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE `kelahiran` (

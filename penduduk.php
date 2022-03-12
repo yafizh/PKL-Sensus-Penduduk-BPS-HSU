@@ -32,6 +32,7 @@
                   <th>Pendidikan</th>
                   <th>Pekerjaan</th>
                   <th>Warga Negara</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,6 +53,10 @@
                     <td><?= $datum['pendidikan']; ?></td>
                     <td><?= $datum['pekerjaan']; ?></td>
                     <td><?= $datum['warga_negara']; ?></td>
+                    <td class="text-center">
+                      <a href="edit_penduduk.php?id=<?= $datum['id'] ?>" class="btn-sm btn-warning">Edit</a>
+                      <a href="hapus_penduduk.php?id=<?= $datum['id'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn-sm btn-danger">Hapus</a>
+                    </td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>

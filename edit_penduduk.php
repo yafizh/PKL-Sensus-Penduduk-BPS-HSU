@@ -1,6 +1,16 @@
 <?php include_once("header.php"); ?>
 <?php include_once("koneksi.php"); ?>
 <?php
+if (isset($_GET['id'])) {
+  $sql = "SELECT * FROM penduduk WHERE id=" . $_GET['id'];
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_assoc();
+} else
+  echo "<script>" .
+    "window.location.href='penduduk.php';" .
+    "</script>";
+
+
 if (isset($_POST['submit'])) {
   $nik = $_POST['nik'];
   $nama = $_POST['nama'];
@@ -15,33 +25,20 @@ if (isset($_POST['submit'])) {
   $warga_negara = $_POST['warga_negara'];
 
   $sql = "
-        INSERT INTO penduduk (
-            nik, 
-            nama, 
-            jenis_kelamin, 
-            tempat_lahir, 
-            tanggal_lahir, 
-            golongan_darah, 
-            agama, 
-            status_nikah, 
-            pendidikan,
-            pekerjaan,
-            warga_negara 
-        ) VALUES (
-            '$nik', 
-            '$nama', 
-            '$jenis_kelamin', 
-            '$tempat_lahir', 
-            '$tanggal_lahir',
-            '$golongan_darah',
-            '$agama', 
-            '$status_nikah',
-            '$pendidikan',
-            '$pekerjaan',
-            '$warga_negara'
-        )";
+        UPDATE penduduk SET 
+            nik='$nik', 
+            nama='$nama', 
+            jenis_kelamin='$jenis_kelamin', 
+            tempat_lahir='$tempat_lahir', 
+            tanggal_lahir='$tanggal_lahir', 
+            golongan_darah='$golongan_darah', 
+            agama='$agama', 
+            status_nikah='$status_nikah', 
+            pendidikan='$pendidikan',
+            pekerjaan='$pekerjaan',
+            warga_negara='$warga_negara' WHERE id=" . $_GET['id'];
 
-  if ($mysqli->query($sql) === TRUE) echo "<script>alert('Penduduk berhasil ditambahkan.')</script>";
+  if ($mysqli->query($sql) === TRUE) echo "<script>alert('Penduduk berhasil diedit.');window.location.href='penduduk.php';</script>";
   else echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
 ?>
@@ -62,77 +59,77 @@ if (isset($_POST['submit'])) {
           <form action="" method="POST">
             <div class="form-group">
               <label for="nik">NIK</label>
-              <input class="form-control" name="nik" id="nik" type="text">
+              <input class="form-control" value="<?= $row['nik']; ?>" name="nik" id="nik" type="text">
             </div>
             <div class="form-group">
               <label for="nama">Nama</label>
-              <input class="form-control" name="nama" id="nama" type="text">
+              <input class="form-control" value="<?= $row['nama']; ?>" name="nama" id="nama" type="text">
             </div>
             <fieldset class="form-group">
               <label>Jenis Kelamin</label>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" id="optionsRadios1" type="radio" name="jenis_kelamin" value="Laki-Laki" checked="">Laki - Laki
+                  <input class="form-check-input" id="optionsRadios1" type="radio" name="jenis_kelamin" value="Laki-Laki" <?= $row['jenis_kelamin'] == 'Laki-Laki' ? "checked" : ""; ?>>Laki - Laki
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" id="optionsRadios2" type="radio" name="jenis_kelamin" value="Perempuan">Perempuan
+                  <input class="form-check-input" id="optionsRadios2" type="radio" name="jenis_kelamin" value="Perempuan" <?= $row['jenis_kelamin'] == 'Perempuan' ? "checked" : ""; ?>>Perempuan
                 </label>
               </div>
             </fieldset>
             <div class="form-group">
               <label for="tempat_lahir">Tempat Lahir</label>
-              <input class="form-control" name="tempat_lahir" id="tempat_lahir" type="text">
+              <input class="form-control" value="<?= $row['tempat_lahir']; ?>" name="tempat_lahir" id="tempat_lahir" type="text">
             </div>
             <div class="form-group">
               <label for="tanggal_lahir">Tanggal Lahir</label>
-              <input class="form-control" name="tanggal_lahir" id="tanggal_lahir" type="date">
+              <input class="form-control" value="<?= $row['tanggal_lahir']; ?>" name="tanggal_lahir" id="tanggal_lahir" type="date">
             </div>
             <div class="form-group">
               <label for="golongan_darah">Golongan Darah</label>
               <select class="form-control" name="golongan_darah" id="golongan_darah">
-                <option selected value="A">A</option>
-                <option value="B">B</option>
-                <option value="AB">AB</option>
-                <option value="O">O</option>
+                <option <?= $row['golongan_darah'] == 'A' ? "selected" : ""; ?> value="A">A</option>
+                <option <?= $row['golongan_darah'] == 'B' ? "selected" : ""; ?> value="B">B</option>
+                <option <?= $row['golongan_darah'] == 'AB' ? "selected" : ""; ?> value="AB">AB</option>
+                <option <?= $row['golongan_darah'] == 'O' ? "selected" : ""; ?> value="O">O</option>
               </select>
             </div>
             <div class="form-group">
               <label for="agama">Agama</label>
               <select class="form-control" name="agama" id="agama">
-                <option selected value="Protestan">Protestan</option>
-                <option value="Katolik">Katolik</option>
-                <option value="Hindu">Hindu</option>
-                <option value="Buddha">Buddha</option>
-                <option value="Khonghucu">Khonghucu</option>
+                <option <?= $row['agama'] == 'Protestan' ? "selected" : ""; ?> value="Protestan">Protestan</option>
+                <option <?= $row['agama'] == 'Katolik' ? "selected" : ""; ?> value="Katolik">Katolik</option>
+                <option <?= $row['agama'] == 'Hindu' ? "selected" : ""; ?> value="Hindu">Hindu</option>
+                <option <?= $row['agama'] == 'Buddha' ? "selected" : ""; ?> value="Buddha">Buddha</option>
+                <option <?= $row['agama'] == 'Khonghucu' ? "selected" : ""; ?> value="Khonghucu">Khonghucu</option>
               </select>
             </div>
             <div class="form-group">
               <label for="status_nikah">Status Nikah</label>
               <select class="form-control" name="status_nikah" id="status_nikah">
-                <option selected value="Belum Kawin">Belum Kawin</option>
-                <option value="Kawin">Kawin</option>
-                <option value="Cerai Hidup">Cerai Hidup</option>
-                <option value="Cerai Mati">Cerai Mati</option>
+                <option <?= $row['status_nikah'] == 'Belum Kawin' ? "selected" : ""; ?> value="Belum Kawin">Belum Kawin</option>
+                <option <?= $row['status_nikah'] == 'Kawin' ? "selected" : ""; ?> value="Kawin">Kawin</option>
+                <option <?= $row['status_nikah'] == 'Cerai Hidup' ? "selected" : ""; ?> value="Cerai Hidup">Cerai Hidup</option>
+                <option <?= $row['status_nikah'] == 'Cerai Mati' ? "selected" : ""; ?> value="Cerai Mati">Cerai Mati</option>
               </select>
             </div>
             <div class="form-group">
               <label for="pendidikan">Pendidikan</label>
-              <input class="form-control" name="pendidikan" id="pendidikan" type="text">
+              <input class="form-control" value="<?= $row['pendidikan']; ?>" name="pendidikan" id="pendidikan" type="text">
             </div>
             <div class="form-group">
               <label for="pekerjaan">Pekerjaan</label>
-              <input class="form-control" name="pekerjaan" id="pekerjaan" type="text">
+              <input class="form-control" value="<?= $row['pekerjaan']; ?>" name="pekerjaan" id="pekerjaan" type="text">
             </div>
             <div class="form-group">
               <label for="warga_negara">Warga Negara</label>
               <select class="form-control" name="warga_negara" id="warga_negara">
-                <option selected value="Indonesia">Indonesia</option>
-                <option value="Asing">Asing</option>
+                <option <?= $row['warga_negara'] == 'Indonesia' ? "selected" : ""; ?> value="Indonesia">Indonesia</option>
+                <option <?= $row['warga_negara'] == 'Asing' ? "selected" : ""; ?> value="Asing">Asing</option>
               </select>
             </div>
-            <button class="btn btn-primary" name="submit" type="submit">Tambah</button>
+            <button class="btn btn-primary" name="submit" type="submit">Edit</button>
           </form>
         </div>
       </div>

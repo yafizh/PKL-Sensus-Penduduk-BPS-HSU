@@ -31,6 +31,7 @@
                   <th>Kecamatan</th>
                   <th>Provinsi</th>
                   <th>Tanggal</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,6 +51,10 @@
                     <td><?= $datum['kecamatan']; ?></td>
                     <td><?= $datum['provinsi']; ?></td>
                     <td><?= $datum['tanggal']; ?></td>
+                    <td class="text-center">
+                      <a href="edit_pindahan.php?id=<?= $datum['id'] ?>" class="btn-sm btn-warning">Edit</a>
+                      <a href="hapus_pindahan.php?id=<?= $datum['id'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn-sm btn-danger">Hapus</a>
+                    </td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>

@@ -30,6 +30,7 @@
                   <th>Tanggal</th>
                   <th>Tempat</th>
                   <th>Alamat</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,6 +49,10 @@
                     <td><?= $datum['tanggal']; ?></td>
                     <td><?= $datum['tempat']; ?></td>
                     <td><?= $datum['alamat']; ?></td>
+                    <td class="text-center">
+                      <a href="edit_kelahiran.php?id=<?= $datum['id'] ?>" class="btn-sm btn-warning">Edit</a>
+                      <a href="hapus_kelahiran.php?id=<?= $datum['id'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn-sm btn-danger">Hapus</a>
+                    </td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>

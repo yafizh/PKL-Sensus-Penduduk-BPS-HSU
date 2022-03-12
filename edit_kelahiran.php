@@ -1,6 +1,15 @@
 <?php include_once("header.php"); ?>
 <?php include_once("koneksi.php"); ?>
 <?php
+if (isset($_GET['id'])) {
+  $sql = "SELECT * FROM kelahiran WHERE id=" . $_GET['id'];
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_assoc();
+} else
+  echo "<script>" .
+    "window.location.href='kelahiran.php';" .
+    "</script>";
+
 if (isset($_POST['submit'])) {
   $nama = $_POST['nama'];
   $jenis_kelamin = $_POST['jenis_kelamin'];
@@ -13,29 +22,17 @@ if (isset($_POST['submit'])) {
   $alamat = $_POST['alamat'];
 
   $sql = "
-        INSERT INTO kelahiran (
-            nama, 
-            jenis_kelamin, 
-            nama_ibu, 
-            nik_ibu, 
-            nama_ayah, 
-            nik_ayah, 
-            tanggal, 
-            tempat,
-            alamat
-        ) VALUES (
-            '$nama', 
-            '$jenis_kelamin', 
-            '$nama_ibu', 
-            '$nik_ibu',
-            '$nama_ayah',
-            '$nik_ayah', 
-            '$tanggal',
-            '$tempat',
-            '$alamat'
-        )";
+        UPDATE kelahiran SET nama='$nama', 
+            jenis_kelamin='$jenis_kelamin', 
+            nama_ibu='$nama_ibu', 
+            nik_ibu='$nik_ibu', 
+            nama_ayah='$nama_ayah', 
+            nik_ayah='$nik_ayah', 
+            tanggal='$tanggal', 
+            tempat='$tempat',
+            alamat='$alamat' WHERE id=" . $_GET['id'];
 
-  if ($mysqli->query($sql) === TRUE) echo "<script>alert('Data Kelahiran berhasil ditambahkan.')</script>";
+  if ($mysqli->query($sql) === TRUE) echo "<script>alert('Data Kelahiran berhasil diedit.');window.location.href='kelahiran.php';</script>";
   else echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
 ?>
@@ -48,7 +45,7 @@ if (isset($_POST['submit'])) {
           <div class="page-header">
             <div class="row">
               <div class="col">
-                <h2 class="mb-3" id="buttons">Tambah Data Kelahiran</h2>
+                <h2 class="mb-3" id="buttons">Edit Data Kelahiran</h2>
               </div>
             </div>
           </div>
@@ -56,50 +53,50 @@ if (isset($_POST['submit'])) {
           <form action="" method="POST">
             <div class="form-group">
               <label for="nama">Nama</label>
-              <input class="form-control" name="nama" id="nama" type="text">
+              <input class="form-control" value="<?= $row['nama']; ?>" name="nama" id="nama" type="text">
             </div>
             <fieldset class="form-group">
               <label>Jenis Kelamin</label>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" id="optionsRadios1" type="radio" name="jenis_kelamin" value="Laki-Laki" checked="">Laki - Laki
+                  <input class="form-check-input" id="optionsRadios1" type="radio" name="jenis_kelamin" value="Laki-Laki" <?= $row['jenis_kelamin'] == 'Laki-Laki' ? "checked" : ""; ?>>Laki - Laki
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" id="optionsRadios2" type="radio" name="jenis_kelamin" value="Perempuan">Perempuan
+                  <input class="form-check-input" id="optionsRadios2" type="radio" name="jenis_kelamin" value="Perempuan" <?= $row['jenis_kelamin'] == 'Perempuan' ? "checked" : ""; ?>>Perempuan
                 </label>
               </div>
             </fieldset>
             <div class="form-group">
               <label for="nama_ibu">Nama Ibu</label>
-              <input class="form-control" name="nama_ibu" id="nama_ibu" type="text">
+              <input class="form-control" value="<?= $row['nama_ibu']; ?>" name="nama_ibu" id="nama_ibu" type="text">
             </div>
             <div class="form-group">
               <label for="nik_ibu">NIK Ibu</label>
-              <input class="form-control" name="nik_ibu" id="nik_ibu" type="text">
+              <input class="form-control" value="<?= $row['nik_ibu']; ?>" name="nik_ibu" id="nik_ibu" type="text">
             </div>
             <div class="form-group">
               <label for="nama_ayah">Nama Ayah</label>
-              <input class="form-control" name="nama_ayah" id="nama_ayah" type="text">
+              <input class="form-control" value="<?= $row['nama_ayah']; ?>" name="nama_ayah" id="nama_ayah" type="text">
             </div>
             <div class="form-group">
               <label for="nik_ayah">NIK Ayah</label>
-              <input class="form-control" name="nik_ayah" id="nik_ayah" type="text">
+              <input class="form-control" value="<?= $row['nik_ayah']; ?>" name="nik_ayah" id="nik_ayah" type="text">
             </div>
             <div class="form-group">
               <label for="tanggal">Tanggal</label>
-              <input class="form-control" name="tanggal" id="tanggal" type="date">
+              <input class="form-control" value="<?= $row['tanggal']; ?>" name="tanggal" id="tanggal" type="date">
             </div>
             <div class="form-group">
               <label for="tempat">Tempat</label>
-              <input class="form-control" name="tempat" id="tempat" type="text">
+              <input class="form-control" value="<?= $row['tempat']; ?>" name="tempat" id="tempat" type="text">
             </div>
             <div class="form-group">
               <label for="alamat">Alamat</label>
-              <input class="form-control" name="alamat" id="alamat" type="text">
+              <input class="form-control" value="<?= $row['alamat']; ?>" name="alamat" id="alamat" type="text">
             </div>
-            <button class="btn btn-primary" name="submit" type="submit">Tambah</button>
+            <button class="btn btn-primary" name="submit" type="submit">Edit</button>
           </form>
         </div>
       </div>

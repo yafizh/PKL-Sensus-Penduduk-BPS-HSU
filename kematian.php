@@ -32,6 +32,7 @@
                   <th>Tanggal</th>
                   <th>Tempat</th>
                   <th>Sebab</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,6 +53,10 @@
                     <td class="text-center"><?= $datum['tanggal']; ?></td>
                     <td class="text-center"><?= $datum['tempat']; ?></td>
                     <td class="text-center"><?= $datum['sebab']; ?></td>
+                    <td class="text-center">
+                      <a href="edit_kematian.php?id=<?= $datum['id'] ?>" class="btn-sm btn-warning">Edit</a>
+                      <a href="hapus_kematian.php?id=<?= $datum['id'] ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn-sm btn-danger">Hapus</a>
+                    </td>
                   </tr>
                 <?php endwhile; ?>
               </tbody>
