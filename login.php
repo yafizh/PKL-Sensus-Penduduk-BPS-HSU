@@ -34,13 +34,17 @@ if (isset($_POST['submit'])) {
         .btn-primary {
             background-color: #0093DD!important;
         }
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+        }
     </style>
 </head>
 
 <body>
-    <section class="material-half-bg">
+    <!-- <section class="material-half-bg">
         <div class="cover" style="background-color: #0093DD;"></div>
-    </section>
+    </section> -->
     <section class="login-content">
         <div class="login-box" style="height: 500px;">
             <form class="login-form" action="" method="POST">
@@ -58,7 +62,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group">
                     <div class="utility w-100 text-center">
-                        <p class="semibold-text text-center w-100 mb-2"><a href="#">Forgot Password ?</a></p>
+                        <p class="semibold-text text-center w-100 mb-2"><a href="#">Lupa Password ?</a></p>
                     </div>
                 </div>
                 <div class="form-group btn-container">
