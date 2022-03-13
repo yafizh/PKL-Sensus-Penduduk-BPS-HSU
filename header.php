@@ -26,7 +26,7 @@
     <!-- Navbar-->
     <header class="app-header">
         <a class="app-header__logo" href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Lambang_Badan_Pusat_Statistik_%28BPS%29_Indonesia.svg" class="mb-2 mr-2" width="30" alt="">
-            <span style="font-family: 'Courier New', Courier, monospace;">BPS</span>
+            <span style="font-family: 'Courier New', Courier, monospace;">BPS HSU</span>
         </a>
         <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->

@@ -93,6 +93,7 @@ if (isset($_POST['submit'])) {
               <label for="agama">Agama</label>
               <select class="form-control" name="agama" id="agama">
                 <option selected value="Protestan">Protestan</option>
+                <option value="Islam">Islam</option>
                 <option value="Katolik">Katolik</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Buddha">Buddha</option>

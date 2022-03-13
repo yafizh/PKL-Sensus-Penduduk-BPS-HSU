@@ -99,6 +99,7 @@ if (isset($_POST['submit'])) {
               <label for="agama">Agama</label>
               <select class="form-control" name="agama" id="agama">
                 <option <?= $row['agama'] == 'Protestan' ? "selected" : ""; ?> value="Protestan">Protestan</option>
+                <option <?= $row['agama'] == 'Islam' ? "selected" : ""; ?> value="Islam">Protestan</option>
                 <option <?= $row['agama'] == 'Katolik' ? "selected" : ""; ?> value="Katolik">Katolik</option>
                 <option <?= $row['agama'] == 'Hindu' ? "selected" : ""; ?> value="Hindu">Hindu</option>
                 <option <?= $row['agama'] == 'Buddha' ? "selected" : ""; ?> value="Buddha">Buddha</option>

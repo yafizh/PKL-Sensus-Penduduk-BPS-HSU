@@ -37,6 +37,7 @@ if (isset($_POST['submit'])) {
         body {
             background-image: url('images/bg.jpg');
             background-size: cover;
+            background-position: 0 -200px;
         }
     </style>
 </head>
@@ -62,7 +63,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group">
                     <div class="utility w-100 text-center">
-                        <p class="semibold-text text-center w-100 mb-2"><a href="#">Lupa Password ?</a></p>
+                        <p class="semibold-text text-center w-100 mb-2"><a href="#" onclick="alert('Silakan hubungi admin')">Lupa Password ?</a></p>
                     </div>
                 </div>
                 <div class="form-group btn-container">
