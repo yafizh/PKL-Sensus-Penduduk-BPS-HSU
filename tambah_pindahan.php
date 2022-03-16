@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
           <div class="page-header">
             <div class="row">
               <div class="col">
-                <h2 class="mb-3" id="buttons">Tambah Data P indahan</h2>
+                <h2 class="mb-3" id="buttons">Tambah Data Pindahan</h2>
               </div>
             </div>
           </div>
