@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS `db_amat`;
 CREATE DATABASE `db_amat`;
 USE `db_amat`;
 
